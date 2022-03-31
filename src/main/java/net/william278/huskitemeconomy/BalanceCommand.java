@@ -1,4 +1,4 @@
-package me.william278.huskitemeconomy;
+package net.william278.huskitemeconomy;
 
 import de.themoep.minedown.MineDown;
 import org.bukkit.command.Command;

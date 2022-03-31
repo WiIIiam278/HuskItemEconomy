@@ -1,4 +1,4 @@
-package me.william278.huskitemeconomy;
+package net.william278.huskitemeconomy;
 
 import net.milkbowl.vault.economy.AbstractEconomy;
 import net.milkbowl.vault.economy.EconomyResponse;

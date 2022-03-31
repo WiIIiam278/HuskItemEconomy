@@ -1,8 +1,10 @@
-package me.william278.huskitemeconomy;
+package net.william278.huskitemeconomy;
 
 import net.milkbowl.vault.economy.Economy;
 import org.bukkit.plugin.ServicePriority;
 import org.bukkit.plugin.java.JavaPlugin;
+
+import java.util.Objects;
 
 public final class HuskItemEconomy extends JavaPlugin {
 
@@ -30,8 +32,6 @@ public final class HuskItemEconomy extends JavaPlugin {
 
     @Override
     public void onEnable() {
-        // Plugin startup logic
-
         // Load settings
         setSettings();
 
@@ -39,13 +39,8 @@ public final class HuskItemEconomy extends JavaPlugin {
             getLogger().severe("Vault not found! Plugin will not function!");
             return;
         }
-        getCommand("balance").setExecutor(new BalanceCommand());
+        Objects.requireNonNull(getCommand("balance")).setExecutor(new BalanceCommand());
 
         getServer().getServicesManager().register(Economy.class, new EconomyProvider(), this, ServicePriority.Normal);
-    }
-
-    @Override
-    public void onDisable() {
-        // Plugin shutdown logic
     }
 }

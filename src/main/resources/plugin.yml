@@ -1,10 +1,10 @@
 name: HuskItemEconomy
 version: ${project.version}
-main: me.william278.huskitemeconomy.HuskItemEconomy
+main: net.william278.huskitemeconomy.HuskItemEconomy
 api-version: 1.16
 authors: [William278]
 depend: [Vault]
-description: A vault-linked, item economy plugin!
+description: ${project.description}
 commands:
   balance:
     usage: /bal

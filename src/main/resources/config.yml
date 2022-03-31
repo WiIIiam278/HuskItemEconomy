@@ -1,9 +1,9 @@
 currency_options:
-  name_singular: Gold ingot
-  name_plural: Gold ingots
-  symbol: xⒼ
+  name_singular: 'Gold ingot'
+  name_plural: 'Gold ingots'
+  symbol: 'xⒼ'
   singular_denomination: 'gold_ingot'
   extra_item_values:
-    9: gold_block
+    9: 'gold_block'
 message_options:
   balance_message: '[Your current balance:](#00fb9a) [%1%](#ffffff)'

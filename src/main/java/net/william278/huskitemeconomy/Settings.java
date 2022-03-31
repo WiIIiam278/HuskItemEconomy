@@ -1,10 +1,9 @@
-package me.william278.huskitemeconomy;
+package net.william278.huskitemeconomy;
 
 import org.bukkit.Material;
 import org.bukkit.configuration.file.FileConfiguration;
 
-import java.util.Map;
-import java.util.Set;
+import java.util.Objects;
 import java.util.TreeMap;
 
 public class Settings {
@@ -21,7 +20,7 @@ public class Settings {
         this.pluralCurrencyName = config.getString("currency_options.name_plural");
         this.currencySymbol = config.getString("currency_options.symbol");
         this.singularDenomination = Material.matchMaterial(config.getString("currency_options.singular_denomination", "gold_ingot"));
-        for (String key : config.getConfigurationSection("currency_options.extra_item_values").getKeys(false)) {
+        for (String key : Objects.requireNonNull(config.getConfigurationSection("currency_options.extra_item_values")).getKeys(false)) {
             this.currencyItemValues.put(Integer.parseInt(key), Material.matchMaterial(config.getString("currency_options.extra_item_values." + key, "gold_ingot")));
         }
         this.balanceMessage = config.getString("message_options.balance_message");

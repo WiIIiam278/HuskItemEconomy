@@ -1,4 +1,4 @@
-package me.william278.huskitemeconomy;
+package net.william278.huskitemeconomy;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -59,14 +59,14 @@ public class DataManager {
             if (!player.getInventory().contains(itemStack)) {
                 for (Integer value : currencyItemValues.keySet()) {
                     if (player.getInventory().contains(currencyItemValues.get(value))) {
-                        for (ItemStack largerDenom : player.getInventory().getContents()) {
-                            if (largerDenom == null) { continue; }
-                            if (largerDenom.getType() == currencyItemValues.get(value)) {
+                        for (ItemStack largerDenomination : player.getInventory().getContents()) {
+                            if (largerDenomination == null) { continue; }
+                            if (largerDenomination.getType() == currencyItemValues.get(value)) {
                                 if (player.getInventory().firstEmpty() == -1) {
-                                    player.getInventory().removeItem(largerDenom);
-                                    storedItemStacks.add(new ItemStack(largerDenom.getType(), largerDenom.getAmount()-1));
+                                    player.getInventory().removeItem(largerDenomination);
+                                    storedItemStacks.add(new ItemStack(largerDenomination.getType(), largerDenomination.getAmount()-1));
                                 } else {
-                                    player.getInventory().removeItem(new ItemStack(largerDenom.getType(), 1));
+                                    player.getInventory().removeItem(new ItemStack(largerDenomination.getType(), 1));
                                 }
                                 player.getInventory().addItem(new ItemStack(HuskItemEconomy.getSettings().getSingularDenomination(), value));
                                 break;
