@@ -1,0 +1,14 @@
+name: HuskItemEconomy
+version: ${project.version}
+main: me.william278.huskitemeconomy.HuskItemEconomy
+api-version: 1.16
+authors: [William278]
+depend: [Vault]
+description: A vault-linked, item economy plugin!
+commands:
+  balance:
+    usage: /bal
+    description: View a count-up of your item balance
+    aliases:
+      - bal
+      - money
