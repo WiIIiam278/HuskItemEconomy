@@ -23,7 +23,9 @@ public class DataManager {
         int balance = 0;
         final TreeMap<Integer, Material> currencyItemValues = HuskItemEconomy.getSettings().currencyItemValues;
         for (ItemStack itemStack : player.getInventory().getContents()) {
-            if (itemStack == null) { continue; }
+            if (itemStack == null) {
+                continue;
+            }
             if (currencyItemValues.containsValue(itemStack.getType())) {
                 for (Integer value : currencyItemValues.keySet()) {
                     if (currencyItemValues.get(value) == itemStack.getType()) {
@@ -60,11 +62,13 @@ public class DataManager {
                 for (Integer value : currencyItemValues.keySet()) {
                     if (player.getInventory().contains(currencyItemValues.get(value))) {
                         for (ItemStack largerDenomination : player.getInventory().getContents()) {
-                            if (largerDenomination == null) { continue; }
+                            if (largerDenomination == null) {
+                                continue;
+                            }
                             if (largerDenomination.getType() == currencyItemValues.get(value)) {
                                 if (player.getInventory().firstEmpty() == -1) {
                                     player.getInventory().removeItem(largerDenomination);
-                                    storedItemStacks.add(new ItemStack(largerDenomination.getType(), largerDenomination.getAmount()-1));
+                                    storedItemStacks.add(new ItemStack(largerDenomination.getType(), largerDenomination.getAmount() - 1));
                                 } else {
                                     player.getInventory().removeItem(new ItemStack(largerDenomination.getType(), 1));
                                 }
@@ -76,7 +80,7 @@ public class DataManager {
                         for (ItemStack storedItemStack : storedItemStacks) {
                             if (storedItemStack.getType() == currencyItemValues.get(value)) {
                                 if (storedItemStack.getAmount() > 1) {
-                                    storedItemStack.setAmount(storedItemStack.getAmount()-1);
+                                    storedItemStack.setAmount(storedItemStack.getAmount() - 1);
                                 } else {
                                     storedItemStacks.remove(storedItemStack);
                                 }

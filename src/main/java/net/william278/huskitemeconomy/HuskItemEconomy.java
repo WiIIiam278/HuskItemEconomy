@@ -9,14 +9,17 @@ import java.util.Objects;
 public final class HuskItemEconomy extends JavaPlugin {
 
     private static HuskItemEconomy instance;
+
     public static HuskItemEconomy getInstance() {
         return instance;
     }
 
     private static Settings settings;
+
     public static Settings getSettings() {
         return settings;
     }
+
     private void setSettings() {
         saveDefaultConfig();
         getConfig().options().copyDefaults(true);
