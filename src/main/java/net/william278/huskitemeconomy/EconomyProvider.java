@@ -31,17 +31,17 @@ public class EconomyProvider extends AbstractEconomy {
 
     @Override
     public String format(double v) {
-        return ((int) v) + HuskItemEconomy.getSettings().getCurrencySymbol();
+        return ((int) v) + HuskItemEconomy.getSettings().currencySymbol;
     }
 
     @Override
     public String currencyNamePlural() {
-        return HuskItemEconomy.getSettings().getPluralCurrencyName();
+        return HuskItemEconomy.getSettings().pluralCurrencyName;
     }
 
     @Override
     public String currencyNameSingular() {
-        return HuskItemEconomy.getSettings().getSingularCurrencyName();
+        return HuskItemEconomy.getSettings().singularCurrencyName;
     }
 
     /**

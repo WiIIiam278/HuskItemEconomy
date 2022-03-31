@@ -21,7 +21,7 @@ public class DataManager {
 
     public static int getPlayerBalance(Player player) {
         int balance = 0;
-        final TreeMap<Integer, Material> currencyItemValues = HuskItemEconomy.getSettings().getCurrencyItemValues();
+        final TreeMap<Integer, Material> currencyItemValues = HuskItemEconomy.getSettings().currencyItemValues;
         for (ItemStack itemStack : player.getInventory().getContents()) {
             if (itemStack == null) { continue; }
             if (currencyItemValues.containsValue(itemStack.getType())) {
@@ -33,7 +33,7 @@ public class DataManager {
                 }
                 continue;
             }
-            if (itemStack.getType() == HuskItemEconomy.getSettings().getSingularDenomination()) {
+            if (itemStack.getType() == HuskItemEconomy.getSettings().singularDenomination) {
                 balance = balance + itemStack.getAmount();
             }
         }
@@ -42,7 +42,7 @@ public class DataManager {
 
     public static void giveBalance(Player player, int amount) {
         for (int x = 0; x < amount; x++) {
-            final ItemStack itemStack = new ItemStack(HuskItemEconomy.getSettings().getSingularDenomination(), 1);
+            final ItemStack itemStack = new ItemStack(HuskItemEconomy.getSettings().singularDenomination, 1);
             if (player.getInventory().firstEmpty() == -1) {
                 Bukkit.getScheduler().runTask(HuskItemEconomy.getInstance(), () -> player.getWorld().dropItem(player.getLocation(), itemStack));
                 continue;
@@ -52,9 +52,9 @@ public class DataManager {
     }
 
     public static void deductBalance(Player player, int amount) {
-        final TreeMap<Integer, Material> currencyItemValues = HuskItemEconomy.getSettings().getCurrencyItemValues();
+        final TreeMap<Integer, Material> currencyItemValues = HuskItemEconomy.getSettings().currencyItemValues;
         final HashSet<ItemStack> storedItemStacks = new HashSet<>();
-        final ItemStack itemStack = new ItemStack(HuskItemEconomy.getSettings().getSingularDenomination(), 1);
+        final ItemStack itemStack = new ItemStack(HuskItemEconomy.getSettings().singularDenomination, 1);
         for (int x = 0; x < amount; x++) {
             if (!player.getInventory().contains(itemStack)) {
                 for (Integer value : currencyItemValues.keySet()) {
@@ -68,7 +68,7 @@ public class DataManager {
                                 } else {
                                     player.getInventory().removeItem(new ItemStack(largerDenomination.getType(), 1));
                                 }
-                                player.getInventory().addItem(new ItemStack(HuskItemEconomy.getSettings().getSingularDenomination(), value));
+                                player.getInventory().addItem(new ItemStack(HuskItemEconomy.getSettings().singularDenomination, value));
                                 break;
                             }
                         }
@@ -80,7 +80,7 @@ public class DataManager {
                                 } else {
                                     storedItemStacks.remove(storedItemStack);
                                 }
-                                player.getInventory().addItem(new ItemStack(HuskItemEconomy.getSettings().getSingularDenomination(), value));
+                                player.getInventory().addItem(new ItemStack(HuskItemEconomy.getSettings().singularDenomination, value));
                             }
                         }
                     }

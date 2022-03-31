@@ -6,4 +6,4 @@ currency_options:
   extra_item_values:
     9: 'gold_block'
 message_options:
-  balance_message: '[Your current balance:](#00fb9a) [%1%](#ffffff)'
+  balance_message: '[Your current balance:](#00fb9a) [%1%](white)'

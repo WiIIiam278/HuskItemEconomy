@@ -23,7 +23,8 @@ public class BalanceCommand implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (sender instanceof Player) {
-            sender.spigot().sendMessage(new MineDown(HuskItemEconomy.getSettings().getBalanceMessage()
+            assert HuskItemEconomy.getSettings().balanceMessage != null;
+            sender.spigot().sendMessage(new MineDown(HuskItemEconomy.getSettings().balanceMessage
                     .replace("%1%", new EconomyProvider().format(DataManager.getPlayerBalance((Player) sender)))).toComponent());
             return true;
         }
